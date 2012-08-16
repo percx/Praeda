@@ -1,0 +1,28 @@
+May 13, 2011  added line to praeda.pl to replace non-printable characters with spaces in the extracted title from targeted systems during finger printing process "Deral Heiland"
+
+June 4, 2011  added Modules MP0014.pl for Sharps LDAP capture leveraging a connect back attack
+
+June 10, 2011 added Modules MP0015.pl for Xerox Workcentra Address Book  Download
+
+
+June 25, 2011  re-enabled SSL by adding code to enable -ssl and  and ignore invalid certs supplied by Chris Teodorski  "Deral Heiland"
+
+July 21, 2011  added Module MP0016.pl for Lanier (Ricoh) MP C5000/LD550C and LD335c username enumeration supplied by Chris Teadorski
+
+July 21, 2011  modified praeda.pl added use HTML::TableExtract also modified @,$,MY to fix use strict; complaints
+
+Aug 2, 2011  added Module MP0017.pl for Lexmark extract settingfile.ucf which contains configuration information including plan text passwords "Deral Heiland"
+
+Sep 2, 2011  Added 2 new modules  MA0008.pl which test for Spectrum24 Access point and test fordefault creds, snmp strings and wep keys. Moldule MA0009.pl is for APC Network Managment card and test for default creds and snmp strings. both modules supplied by Chris Teadorski
+
+Oct 20, 2011 Disabled modules MP0016.pl because of issues causing failure, on drawing board for more testing. Also a couple simple bug fix in MA0008.pl & MA0009.pl had exit set if default password was not found causing Praeda to exit and not complete properly.
+
+Nov 07, 2011 made a few modification to MP0008.pl and MP0015.pl to support Xerox workcentra 57XX series MFP devices changes support clone and address book downloads from 57XX devices. Also  updated datalist with 57XX jobs
+
+Jan 10, 2012 Added option switches to praeda.pl. Added feature to allow the use of NMAP .gnmap output as target input to praeda.pl (Version release 0.02.0.0b). Also modified all modules text output to state "Attempting". Also add "404 Not Found" check to MP0005.pl.
+
+Mar 1, 2012 Added MP0018.pl "HP Officejet 6500n-z". Modified Praeda.pl to allow a compare of =~ when validating finger printer server type. This allows for support of changing server type information by comparing part of string to match versus 100% match.
+
+Mar 8, 2012 added a 403 Forbidden check of returned title page in MP0008.pl. In case basic auth fails. This prevent the creation of bad cloning.dlm files.
+
+Mar 22, 2012 added 3 new appliance modules. 2 check for default creds MA0011 "Digi" & MA0013 "Integrated Remote Access Controller 6 'IDRAC6'"  and one that checks for snmp string MA0012 "EtherPath".
