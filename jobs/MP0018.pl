@@ -1,11 +1,11 @@
 # Officejet  Remote Scan
 ######################################################
-#                    PRAEDA Module #MP00T1           #
+#                    PRAEDA Module #MP0018           #
 #        Copyright (C) 2012 Foofus.net		     #
 #              Deral 'percX' Heiland                 #
 ######################################################
-package MP00T1;
-sub MP00T1
+package MP0018;
+sub MP0018
 {
  
 # Set global variables
@@ -19,8 +19,8 @@ my $LOGFILE = $_[5];
 
 #Open output file for loging 
 open(OUTFILE, ">>./$OUTPUT/$LOGFILE.log") || die("Failed to open  Output file $LOGFILE.log \n");
-     print "\n**********Attempting Officejet Remote Scan  $TARGET : JOB MP00T1**********\n";
-     print OUTFILE "\n**********Attempting Officejet Remote Scan $TARGET : JOB MP00T1**********\n";
+     print "\n**********Attempting Officejet Remote Scan  $TARGET : JOB MP0018**********\n";
+     print OUTFILE "\n**********Attempting Officejet Remote Scan $TARGET : JOB MP0018**********\n";
 
 # Send XLM request to trigger scan 
 my $browser = LWP::UserAgent->new(timeout => 180);
