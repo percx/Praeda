@@ -2,7 +2,6 @@
 #
 # praeda.pl
 # praeda [robber, plunderer]. 
-#   
 #
 # PRAEDA version 0.02.0.01b
 ######################################################
