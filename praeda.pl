@@ -4,7 +4,7 @@
 # praeda [robber, plunderer]. 
 #   
 #
-# PRAEDA version 0.02.0.0b
+# PRAEDA version 0.02.0.01b
 ######################################################
 #                    PRAEDA                          #
 #        Copyright (C) 2010 Foofus.net		     #
@@ -196,7 +196,7 @@ else
                              print OUTFILE "\n$TARGET:$PORTS:$data1:$data2\n";
 			     $job = $values[$i];	
 			     require "$dirpath/jobs/$values[$i].pl";
-                             my $printpwn = $job->$job($TARGET,$PORTS,$web,$OUTPUT,$LOGFILE);
+                             my $printpwn = $job->$job($TARGET,$PORTS,$web,$OUTPUT,$LOGFILE,$data1);
 			     print "\n";
                              } 
 			}

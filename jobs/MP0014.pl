@@ -44,9 +44,9 @@ my $response = $browser->post("http$web://$TARGET:$PORTS/login.html",
      "action" =>"loginbtn",
      "ggt_hidden(10008)" => "4",
     ]);
-    die " error: ", $response->status_line
+    print " error: ", $response->status_line
        unless $response->is_success;
-    die "Weird content type  -- ", $response->content_type
+    print "Weird content type  -- ", $response->content_type
        unless $response->content_type eq 'text/html';
 
 # retrieve the ldap setting for parsing

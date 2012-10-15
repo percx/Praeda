@@ -30,3 +30,5 @@ Mar 22, 2012 added 3 new appliance modules. 2 check for default creds MA0011 "Di
 June 15, 2012 added 1 new appliance module MA0014.pl. extracts the snmp string setting used by a Pillar Axiom Performace Statistics Monitor"
 
 Sep 6, 2012 added 1 new appliance module MA0015.pl check for default creds on a CoyotePoint Equalizer device
+
+Oct 12, 2012 added new module MP0019.pl which validated defaut creds for Konica Minolta 1690MFM and 4690MFP devices and also attempts to retrieve LDAP, POP3 and SMTP authentication credentials.

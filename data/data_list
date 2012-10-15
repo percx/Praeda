@@ -42,6 +42,8 @@ P000040|Top Page - MX-M623N|Rapid Logic/1.1|MP0014
 P000041|Top Page - MX-3501N|Rapid Logic/1.1|MP0014
 P000042|Lexmark X656de||MP0017
 P000043||HP HTTP Server; HP Officejet 6500 E710n-z|MP0018
+P000044|KONICA MINOLTA magicolor 4690MF|LPC Http Server/V1.0|MP0019
+P000045|KONICA MINOLTA magicolor 1690MF|LPC Http Server/V1.0|MP0019
 A000001|Riverbed Technology, Inc.|Apache|MA0001
 A000002|EMC Celerra Network Server|Apache|MA0002
 A000003|EasyServer II|EasyServer II/6.3.0|MA0003
