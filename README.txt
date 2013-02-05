@@ -9,17 +9,19 @@ URI::Fetch
 HTTP::Cookies
 IO::Socket
 HTML::TableExtract
-use Getopt::Std;
-also it is advised to install "Crypt::SSLeay or  IO::Socket::SSL" for ssl support
+use Getopt::Std
+use Net::SSL
+use Net::SNMP
+
+also it is advised to install "Crypt::SSLeay for ssl support
 
 set root of praeda install in praeda.pl under
 my $dirpath =".";
 
 
 
-
-
-Praeda version 0.02.0.b syntax:
+Praeda version 0.02.1.062b syntax:
+first part of version  0.02.1 represent the core product version the Last 3 digits represent the number of product versions tested.
 
 PRAEDA OPTIONS:
 -g GNMAP_FILE

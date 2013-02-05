@@ -26,6 +26,7 @@ my $jobs = 0;
 open(OUTFILE, ">>./$OUTPUT/$LOGFILE.log") || die("Failed to open  Output file $OUTPUT \n");
 print "Attempting to enumerate User Names from COLOR USAGE JOB LOG :MP0002\n";
 print OUTFILE "Attempting to enumerate User Names from COLOR USAGE JOB LOG :MP0002\n";
+open(TEMP, ">./$OUTPUT/temp_data.txt")|| die("Failed to open  Output file temp_data.txt \n");
 
 
 # extract print job log count-----start-----
@@ -67,9 +68,8 @@ my $html = HTML::TagParser->new( "http$web://$TARGET/hp/device/this.LCDispatcher
                {
                   if ($num eq $count)
                      {
-                       # print "$text\n";
-                       print OUTFILE "$text\n";
-                       $num = $num+7;
+                        print TEMP "$text\n"; 
+			$num = $num+7;
                      }
                   else 
                     {
@@ -82,6 +82,20 @@ $strtrcd = ($strtrcd+100);
  $count = 0;
  $num = 15;
  }
+
+# sort/uniq temp_data and output
+close TEMP;
+open (IN, "<./$OUTPUT/temp_data.txt")  or die "Couldn't open input file: $!";
+my %hTmp;
+while (my $sLine = <IN>) {
+        next if $sLine =~ m/^\s*$/; #remove empty lines. Without this, still destroys empty lines except for the first one.
+        $sLine=~s/^\s+//; #strip leading/trailing whitespace
+        $sLine=~s/\s+$//;
+        print OUTFILE qq{$sLine\n} unless ($hTmp{$sLine}++);
+                        }
+close (IN);
+unlink("./$OUTPUT/temp_data.txt");
+
 #HP Color Laserjet 3xxx user name recovery loop-----end------
 
 # operation completed close out output files

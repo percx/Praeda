@@ -32,3 +32,7 @@ June 15, 2012 added 1 new appliance module MA0014.pl. extracts the snmp string s
 Sep 6, 2012 added 1 new appliance module MA0015.pl check for default creds on a CoyotePoint Equalizer device
 
 Oct 12, 2012 added new module MP0019.pl which validated defaut creds for Konica Minolta 1690MFM and 4690MFP devices and also attempts to retrieve LDAP, POP3 and SMTP authentication credentials.
+
+Feb 1, 2013 added support to pull device finger print data via snmp queries. This data is recorded in the5th column in the output log files. Also added new module MP0020.pl that leverages the new SNMP to identify a Konica C452 and extract SMBMODE information including Host, Username, Password, and folder name.
+
+Feb 2, 2013 updated MP0001 and MP0002 HP color usage logs extract to pars out duplicates
