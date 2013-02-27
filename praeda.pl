@@ -44,7 +44,7 @@ use HTTP::Cookies;
 use IO::Socket ();
 use HTML::TableExtract;
 use Getopt::Std;
-use NET::SSL;
+use Net::SSL;
 use Net::SNMP;
 
 # -- Set Variables ---------------
