@@ -162,7 +162,6 @@ my $response = $browser->post("http$web://$TARGET:$PORTS/nw_quick.html",
 
 # close socket after receiving data
       $socket->close();
-      exit;
 
 }
 1;
