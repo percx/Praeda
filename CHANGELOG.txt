@@ -35,4 +35,8 @@ Oct 12, 2012 added new module MP0019.pl which validated defaut creds for Konica 
 
 Feb 1, 2013 added support to pull device finger print data via snmp queries. This data is recorded in the5th column in the output log files. Also added new module MP0020.pl that leverages the new SNMP to identify a Konica C452 and extract SMBMODE information including Host, Username, Password, and folder name.
 
-Feb 2, 2013 updated MP0001 and MP0002 HP color usage logs extract to pars out duplicates
+Feb 2, 2013 updated MP0001 and MP0002 HP color usage logs extract to pars out duplicates.
+
+Apr 17, 2013 added 1 new appliance module MA0016.pl check  for default creds and extraxt snmp settings on Emerson Network Power IntelliSlot Web Card.
+
+May 5, 2013 added 1 new module MP0021.pl checks default creds, enable password export withing address book export, disables encrypting and exports address books with plan text passwords on Canon IR-ADV MFP devices.
