@@ -1,12 +1,12 @@
-# Emerson Liebert Network Power IntelliSlot Card  default password test
+# Tripp Lite Power Alert Device default password test
 # 
 ######################################################
-#                  PRAEDO Module #MA0016             #
+#                  PRAEDO Module #MA0017             #
 #          Copyright (C) 2013 Foofus.net	     #
 #              Deral Heiland    "percX"              # 
 ######################################################
-package MA0016;
-sub MA0016
+package MA0017;
+sub MA0017
 {
  
 # Set global variables
@@ -19,24 +19,22 @@ my $LOGFILE = $_[5];
 
 # Open output file and setup browser LWP function 
 open(OUTFILE, ">>./$OUTPUT/$LOGFILE.log") || die("Failed to open  Output file $LOGFILE.log \n");
-print "\n**********Default credential check on Emerson IntelliSlot Card $TARGET : JOB MA0016**********\n";
-print OUTFILE "\n**********Default credential check on Emerson IntelliSlot Card  $TARGET : JOB MA0016**********\n";
+print "\n**********Default credential check on Tripp Lite Power Alert Device $TARGET : JOB MA0017**********\n";
+print OUTFILE "\n**********Default credential check on Tripp Lite Power Alert Device $TARGET : JOB MA0017**********\n";
 
 my $browser = LWP::UserAgent->new(timeout => 120);
-$browser->default_header(Authorization=> "Basic TGllYmVydDpMaWViZXJ0");
-
+$browser->default_header(Authorization=> "Basic YWRtaW46YWRtaW4=");
 
 # Test  For Default Password
 
-     my $InitialConnect = $browser->get("http$web://$TARGET:$PORTS/config/configSnmpAccess.htm",);
-     my $response = $browser->get("http$web://$TARGET:$PORTS/config/configSnmpAccess.htm",);
+     my $InitialConnect = $browser->get("http$web://$TARGET:$PORTS/",);
+     my $response = $browser->get("http$web://$TARGET:$PORTS/settings/network_snmp.htm",);
 
 my $content = $response->content();
-     
-if ($content =~ /Device Configuration - SNMP Access/)
+if ($content =~ /NMS Access Settings/)
         {
-            print "SUCCESS : username=Liebert : password=Liebert\n";
-            print OUTFILE "SUCCESS : username=Liebert : password=Liebert\n";
+            print "SUCCESS : username=admin : password=admin\n";
+            print OUTFILE "SUCCESS : username=admin : password=admin\n";
 
 	    	my $html = HTML::TagParser->new($content);
                 my @list = $html->getElementsByTagName( "input" );
@@ -44,7 +42,7 @@ if ($content =~ /Device Configuration - SNMP Access/)
         			{
          			 my $text1 = $elem->getAttribute("name");
          			 my $text2 = $elem->getAttribute("value");
-                 		    if (($text1 =~ /accessCommunityString/) && ($text2 ne //))
+                 		    if (($text1 =~ /uN/) && ($text2 ne //))
                      			{
                        			   print "SNMP community String = $text2\n";
                        			   print OUTFILE "SNMP Read community String = $text2\n";
