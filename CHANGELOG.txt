@@ -42,3 +42,5 @@ Apr 17, 2013 added 1 new appliance module MA0016.pl check  for default creds and
 May 5, 2013 added 1 new module MP0021.pl checks default creds, enable password export withing address book export, disables encrypting and exports address books with plan text passwords on Canon IR-ADV MFP devices.
 
 May 17, 2013 added 1 new module MA0017.pl which checks for default creds and snmp community strings on Tripp Lite Power Alert Device. also updated version number to 0.02.1.072b. and added a bug fix to MA0016.pl.
+
+May 31, 2013 added 1 new module MA0018.pl which checks for default creds on a Binatone ADSL Wireless Modem Router DT 845W
