@@ -35,16 +35,14 @@ my $browser = LWP::UserAgent->new(timeout => 15);
 my $content = $response->content();
      
 if ($content =~ /You have successfully authenticated/) {
-            print " SUCCESS : username=root : password=nasadmin\n"; 
+            print "$TARGET : SUCCESS : username=root : password=nasadmin\n"; 
+            print OUTFILE "$TARGET : SUCCESS : username=root : password=nasadmin\n"; 
         }
         else { 
             print " FAILED \n";
+	    print OUTFILE "FAILED \n";
         } 
 
-#print OUTFILE $response->content;
-#     print $response->content;
-
-                   
 
 # operation completed close out output files
 close(OUTFILE);

@@ -39,8 +39,8 @@ my $content = $response->content();
 
 if ($content =~ /\<authResult\>0\<\/authResult\>/)
         {
-            print "Default Credentials : username=root : password=calvin\n";
-            print OUTFILE "Default Credentials : username=root : password=calvin\n";
+            print "$TARGET : SUCCESS : username=root : password=calvin\n";
+            print OUTFILE "$TARGET : SUCCESS : username=root : password=calvin\n";
 
         }
 

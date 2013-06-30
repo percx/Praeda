@@ -60,10 +60,10 @@ else
 	
 			if ($text1 =~ /i1accessControlCommunity/)
 			{
-			 print "SUCCESS : SNMP Community String Found: "; 
+			 print "$TARGET : SUCCESS : SNMP Community String Found: "; 
 			 print $text2 . "\n";
 			 
-			 print OUTFILE "SUCCESS : SNMP Community String Found: ";
+			 print OUTFILE "$TARGET : SUCCESS : SNMP Community String Found: ";
                          print OUTFILE $text2 . "\n";
 
 			}

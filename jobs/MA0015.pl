@@ -40,8 +40,8 @@ my $content = $response->content();
 
 if ($content =~ /Administration Interface/)
         {
-            print "SUCCESS : username=touch : password=touch\n";
-            print OUTFILE "SUCCESS : username=touch : password=touch\n";
+            print "$TARGET : SUCCESS : username=touch : password=touch\n";
+            print OUTFILE "$TARGET : SUCCESS : username=touch : password=touch\n";
 
         }
 

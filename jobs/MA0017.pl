@@ -33,8 +33,8 @@ $browser->default_header(Authorization=> "Basic YWRtaW46YWRtaW4=");
 my $content = $response->content();
 if ($content =~ /NMS Access Settings/)
         {
-            print "SUCCESS : username=admin : password=admin\n";
-            print OUTFILE "SUCCESS : username=admin : password=admin\n";
+            print "$TARGET : SUCCESS : username=admin : password=admin\n";
+            print OUTFILE "$TARGET : SUCCESS : username=admin : password=admin\n";
 
 	    	my $html = HTML::TagParser->new($content);
                 my @list = $html->getElementsByTagName( "input" );
@@ -44,8 +44,8 @@ if ($content =~ /NMS Access Settings/)
          			 my $text2 = $elem->getAttribute("value");
                  		    if (($text1 =~ /uN/) && ($text2 ne //))
                      			{
-                       			   print "SNMP community String = $text2\n";
-                       			   print OUTFILE "SNMP Read community String = $text2\n";
+                       			   print "$TARGET : SUCCESS : SNMP community String = $text2\n";
+                       			   print OUTFILE "$TARGET : SUCCESS : SNMP community String = $text2\n";
                      			}
                   	            else
                     			{

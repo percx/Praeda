@@ -32,8 +32,8 @@ my $html = HTML::TagParser->new( "http$web://$TARGET:$PORTS/snmp.htm" );
          my $text2 = $elem->getAttribute("value");
                  if ($text1 =~ /CMY/) 
                      {
-                       print "SNMP Read community String = $text2\n";
-                       print OUTFILE "SNMP Read community String = $text2\n";
+                       print "$TARGET : SUCCESS : SNMP Read community String = $text2\n";
+                       print OUTFILE "$TARGET : SUCCESS: SNMP Read community String = $text2\n";
                      }
                   else
                     {

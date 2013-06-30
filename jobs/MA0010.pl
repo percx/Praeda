@@ -33,8 +33,8 @@ my $content = $response->content();
      
 if ($content =~ /Configuration \[SNMP\]/)
         {
-            print "Default Credentials : username=admin : password=pass\n";
-           print OUTFILE "Default Credentials : username=admin : password=pass\n";
+            print "$TARGET : SUCCESS : username=admin : password=pass\n";
+            print OUTFILE "$TARGET : SUCCESS : username=admin : password=pass\n";
 
  my $html = HTML::TagParser->new($content);
  my @list = $html->getElementsByTagName( "input" );
@@ -44,8 +44,8 @@ if ($content =~ /Configuration \[SNMP\]/)
          my $text2 = $elem->getAttribute("value");
                  if (($text1 =~ /.READ_COM/) || ($text1 =~ /.WRT_COM/))
                      {
-                       print "SNMP Read community String = $text2\n";
-                       print OUTFILE "SNMP Read community String = $text2\n";
+                       print "$TARGET : SUCCESS : SNMP Read community String = $text2\n";
+                       print OUTFILE "$TARGET : SUCCESS : SNMP Read community String = $text2\n";
                      }
                   else
                     {

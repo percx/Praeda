@@ -38,7 +38,8 @@ my $html = HTML::TagParser->new( "http$web://$TARGET:$PORTS/axiom_setup.php" );
                {
                   if ($num eq $count)
                      {
-		       print OUTFILE "$text1 value = $text2\n";
+		       print "$TARGET : SUCCESS : $text1 value = $text2\n";
+		       print OUTFILE "$TARGET : SUCCESS : $text1 value = $text2\n";
                        $num = $num+1;
                      }
                   else 

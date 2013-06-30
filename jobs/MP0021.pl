@@ -39,8 +39,8 @@ my $response = $browser->get("http$web://$TARGET:8000/rps/nativetop.cgi?RUIPNxBu
 my $content = $response->content();
 if ($content =~ /VARIE_BOX_ALL_SETTING/)
    {
-    print "SUCCESS : username=7654321 : password=7654321\n";
-    print OUTFILE "SUCCESS : username=7654321 : password=7654321\n";
+    print "$TARGET : SUCCESS : username=7654321 : password=7654321\n";
+    print OUTFILE "$TARGET : SUCCESS : username=7654321 : password=7654321\n";
 
 
 

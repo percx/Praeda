@@ -55,8 +55,8 @@ my $data = $response->header("Location");
 
 if ($data =~ /main_IBM3576.htm/)
         {
-            print "SUCCESS : username=service : password=ser001\n";
-            print OUTFILE "SUCCESS : username=service : password=ser001\n";
+            print "$TARGET : SUCCESS : username=service : password=ser001\n";
+            print OUTFILE "$TARGET : SUCCESS : username=service : password=ser001\n";
         }
         else 
         { 

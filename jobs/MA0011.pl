@@ -44,8 +44,8 @@ my $content = $response->content();
 
 if ($content =~ /Configuration and Management/)
         {
-            print "Default Credentials : username=root : password=dbps\n";
-            print OUTFILE "Default Credentials : username=root : password=dbps\n";
+            print "$TARGET : SUCCESS : username=root : password=dbps\n";
+            print OUTFILE "$TARGET : SUCCESS : username=root : password=dbps\n";
         }
         else 
         { 

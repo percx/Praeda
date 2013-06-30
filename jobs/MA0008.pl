@@ -60,10 +60,10 @@ else
 	
 			if ($text1 =~ /apRWCommunityName/)
 			{
-			 print "SUCCESS : SNMP Read/Write Community String Found: "; 
+			 print "$TARGET : SUCCESS : SNMP Read/Write Community String Found: "; 
 			 print $text2 . "\n";
 			 
-			 print OUTFILE "SUCCESS : SNMP Read/Write Community String Found: ";
+			 print OUTFILE "$TARGET : SUCCESS : SNMP Read/Write Community String Found: ";
                          print OUTFILE $text2 . "\n";
 
 			}

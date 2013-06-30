@@ -47,8 +47,8 @@ my $content = $response->content();
      
 if ($content =~ /EasyServer II - Setup/)
         {
-            print "SUCCESS : username=root : password=system\n";
-            print OUTFILE "SUCCESS : username=root : password=system\n";
+            print "$TARGET : SUCCESS : username=root : password=system\n";
+            print OUTFILE "$TARGET : SUCCESS : username=root : password=system\n";
         }
         else 
         { 

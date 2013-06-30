@@ -42,18 +42,17 @@ my $browser = LWP::UserAgent->new(timeout => 15);
      my $response = $browser->get("http$web://$TARGET:$PORTS/mgmt/gui?P=home&loginUser=admin&loginPassword=password&loginButton=Log+In",);
 
 my $content = $response->content();
-     
+
 if ($content =~ /User admin with the given password is not recognized/)
         {
             print "FAILED \n"; 
+	    print OUTFILE "FAILED \n";
         }
         else 
         { 
-            print "SUCCESS : username=admin : password=password\n";
+            print "$TARGET : SUCCESS : username=admin : password=password\n";
+            print OUTFILE "$TARGET : SUCCESS : username=admin : password=password\n";
         } 
-
-#print OUTFILE $response->content;
-#     print $response->content;
 
                    
 

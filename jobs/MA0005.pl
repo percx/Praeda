@@ -53,7 +53,7 @@ my $content = $response->content();
 if ($content =~ /The credentials you supplied were not correct/)
         {
             print "FAILED \n";
-            print OURFILE "FAILED \n";
+            print OUTFILE "FAILED \n";
         }
         else 
         { 
