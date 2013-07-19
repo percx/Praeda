@@ -46,3 +46,5 @@ May 17, 2013 added 1 new module MA0017.pl which checks for default creds and snm
 May 31, 2013 added 1 new module MA0018.pl which checks for default creds on a Binatone ADSL Wireless Modem Router DT 845W
 
 June 30, 2013 Modified module MA0018.pl to check for a number of rebranded ADSL Wireless Modem Routers. Original finger print is ambiguous so will check for different password of password and admin. Also modified several modules to list ip address on same line as SUCCESS when doing default password checks. Make for easier parsing of output for info.
+
+July 19, 2013 Added Module MA0019.pl to check for default creds and pull SNMP community strings from Pelco Sarix Camera.

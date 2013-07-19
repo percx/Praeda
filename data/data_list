@@ -74,3 +74,5 @@ A000017|Emerson Network Power IntelliSlot Web/485 Card|Allegro-Software-RomPager
 A000018|Protected Object|PowerAlert HTTP server|MA0017
 A000019||RomPager/4.07 UPnP/1.0|MA0018
 A000020|Protected Object|RomPager/4.07 UPnP/1.0|MA0018
+A000022|Sarix   |lighttpd/1.4.23|MA0019
+A000022|Sarix   |lighttpd/1.4.28|MA0019
