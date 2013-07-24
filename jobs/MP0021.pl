@@ -20,8 +20,8 @@ my $LOGFILE = $_[5];
 
 # Email Address Book Enumeration
 open(OUTFILE, ">>./$OUTPUT/$LOGFILE.log") || die("Failed to open  Output file $OUTPUT \n");
-print "\n**********Attempting to enumerate all Email Address books on Cannon IR-ADV $TARGET : JOB MP-TEST1**********\n";
-print OUTFILE "\n**********Attempting to enumerate all Email Address books on Cannon IR-ADV $TARGET : JOB MP-TEST1**********\n";
+print "\n**********Attempting to enumerate all Email Address books on Cannon IR-ADV $TARGET : JOB MP0021**********\n";
+print OUTFILE "\n**********Attempting to enumerate all Email Address books on Cannon IR-ADV $TARGET : JOB MP0021**********\n";
 
 my $browser = LWP::UserAgent->new(timeout => 15);
 
@@ -65,7 +65,7 @@ if ($content =~ /VARIE_BOX_ALL_SETTING/)
 	    } 
          else
             {
-             open(JOBACCTOUTFILE, ">>./$OUTPUT/$TARGET-$PORTS-canon-address.ldif") || die("Failed to open  Output file $TARGET-$PORTS-canon-address.ldif \n");
+             open(JOBACCTOUTFILE, ">>./$OUTPUT/$TARGET-8000-canon-address.ldif") || die("Failed to open  Output file $TARGET-$PORTS-canon-address.ldif \n");
              print JOBACCTOUTFILE $response->content;
             }
 	}
