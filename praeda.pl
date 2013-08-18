@@ -104,12 +104,15 @@ open(DAT, $data_file) || die("Could not open file!");
 my @raw_data=<DAT>;
 close(DAT);
 
-# Enable -ssl and set to ignore invalid certs
+# Enable -ssl 
 if (($options{s} eq "ssl" ) || ($options{s} eq "SSL"))
         {
-	$ENV{'PERL_LWP_SSL_VERIFY_HOSTNAME'}=0;
 	$web = 's';
         }
+
+# Set ingnore invalid certs
+$ENV{'PERL_LWP_SSL_VERIFY_HOSTNAME'}=0;
+
 
 # Setup browser
 my $browser = LWP::UserAgent->new;

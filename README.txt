@@ -13,7 +13,9 @@ use Getopt::Std
 use Net::SSL
 use Net::SNMP
 
-also it is advised to install "Crypt::SSLeay for ssl support
+Note: If running on Windows host and having issues install Net:SSL with cpan. Change the following in praeda.pl "use Net::SSL" to "use Net::SSLeay" and run the following install for Net-SSLeay.ppd:
+ppm install http://http://cpansearch.perl.org/src/MIKEM/Net-SSLeay-1.46/Net-SSLeay.ppd --force
+
 
 set root of praeda install in praeda.pl under
 my $dirpath =".";
