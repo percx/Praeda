@@ -61,12 +61,22 @@ P000060|Canon iR C3220 /P|SNMP|MP0003|MP0004|MP0005
 P000061|Canon iR3035 /P|SNMP|MP0003|MP0009|MP0010
 P000062|Canon iR3045 /P|SNMP|MP0003|MP0009|MP0010
 P000063|Canon iR5055 /P|SNMP|MP0003|MP0009|MP0010
+P000064|Xerox WorkCentre 5638 v1 Multifunction System|SNMP|MP0022
+P000065|Xerox WorkCentre 5645 v1 Multifunction System|SNMP|MP0022
+P000066|Xerox WorkCentre 5655 v1 Multifunction System|SNMP|MP0022
+P000067|Xerox WorkCentre 5735 v1 Multifunction System|SNMP|MP0022
+P000068|Xerox WorkCentre 5740 v1 Multifunction System|SNMP|MP0022|MP0015
+P000069|Xerox WorkCentre 5745 v1 Multifunction System|SNMP|MP0022
+P000070|Xerox WorkCentre 5755 v1 Multifunction System|SNMP|MP0022
+P000071|Xerox WorkCentre 7775 v1 Multifunction System|SNMP|MP0022
+P000072|KONICA MINOLTA bizhub C220|SNMP|MP0020
+P000073|KONICA MINOLTA bizhub 223|SNMP|MP0020
 A000001|Riverbed Technology, Inc.|Apache|MA0001
 A000002|EMC Celerra Network Server|Apache|MA0002
 A000003|EasyServer II|EasyServer II/6.3.0|MA0003
 A000004|Digi Configuration and Management|GoAhead-Webs|MA0004
 A000005|Digi Connect ME Configuration and Management|Allegro-Software-RomPager/4.01|MA0011
-P000006|PortServer TS 8 Configuration and Management|Allegro-Software-RomPager/3.12|MA0011
+A000006|PortServer TS 8 Configuration and Management|Allegro-Software-RomPager/3.12|MA0011
 A000007-NotValidated|Welcome to FireScope|Apache/2.2.9 (rPath)|MA0005
 A000008|Login Page|Apache|MA0006
 A000009|ConnectUPS Web/SNMP Card|UPS_Server/1.0|MA0007
@@ -81,5 +91,5 @@ A000017|Emerson Network Power IntelliSlot Web/485 Card|Allegro-Software-RomPager
 A000018|Protected Object|PowerAlert HTTP server|MA0017
 A000019||RomPager/4.07 UPnP/1.0|MA0018
 A000020|Protected Object|RomPager/4.07 UPnP/1.0|MA0018
-A000022|Sarix   |lighttpd/1.4.23|MA0019
+A000021|Sarix   |lighttpd/1.4.23|MA0019
 A000022|Sarix   |lighttpd/1.4.28|MA0019

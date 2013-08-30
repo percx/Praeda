@@ -22,7 +22,7 @@ my $dirpath =".";
 
 
 
-Praeda version 0.02.1.078b syntax:
+Praeda version 0.02.1.087b syntax:
 first part of version  0.02.1 represent the core product version the Last 3 digits represent the number of product versions tested.
 
 PRAEDA OPTIONS:
