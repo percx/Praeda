@@ -52,3 +52,5 @@ July 19, 2013 Added Module MA0019.pl to check for default creds and pull SNMP co
 August 18, 2013 bug fix issue with processing HTTPS in praeda.pl when using gnmap data in input.
 
 August 29, 2013 Added new support modules for extraction of devices admin passwords for following Workcentre,s 5638, 5645, 5655, 5735, 5740, 5745, 5755, 7775. Also added support for extraction of SMB creds from address books on KONICA MINOLTA bizhub C220 & 223.
+
+September 16, 2013 added support for a KONICA MINOLTA bizhub 423 & 552
