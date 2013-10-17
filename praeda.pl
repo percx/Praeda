@@ -4,7 +4,7 @@
 # praeda [robber, plunderer]. 
 #   
 #
-# PRAEDA version 0.02.1.089b
+# PRAEDA version 0.02.2.089b
 ######################################################
 #                    PRAEDA                          #
 #        Copyright (C) 2010 Foofus.net		     #
@@ -46,6 +46,7 @@ use HTML::TableExtract;
 use Getopt::Std;
 use Net::SSL;
 use Net::SNMP;
+use NetAddr::IP;
 
 # -- Set Variables ---------------
 my $dirpath =".";
@@ -66,23 +67,30 @@ my $LOGFILE = "";
 my $FILE = "";
 my $data3 = "Q";
 
-#set options
+# -- Set Options ---------------
 %options=();
-getopts("g:t:p:j:l:s:",\%options);
+getopts("g:n:t:p:j:l:s:",\%options);
 
 #set option exclusions and messages
-if ($options{g} && ($options{t} || $options{p})) {
+if (($options{g} && ($options{t} || $options{p})) || ($options{g} && ($options{n} || $options{p})) || ($options{g} && $options{n})) {
   print"-g and -t or -p options are not allowed at same time\n";
   print"The correct options syntax are:\n";
-  print"For .gnmap input: praeda.pl -g GNMAP_FILE -j PROJECT_NAME -l OUTPUT_LOG_FILE\n";
-  print"For target list input: praeda.pl -t TARGET_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
+  print"For GNMAP input:  praeda.pl -g GNMAP_FILE -j PROJECT_NAME -l OUTPUT_LOG_FILE\n";
+  print"For target input: praeda.pl -t TARGET_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
+  print"For CIDR input:   praeda.pl -n CIDR or CIDR_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
   exit;
 }
 elsif ($options{g} && (!$options{j} || !$options{l})) {
   print"Options -j and -l are both required when using option -g\n";
-  print"The correct options syntax for using .gnmap as input is:\n";
+  print"The correct options syntax for using gnmap as input is:\n";
   print"praeda.pl -g GNMAP_FILE -j PROJECT_NAME -l OUTPUT_LOG_FILE\n";
   exit;  
+}
+elsif ($options{n} && (!$options{p} || !$options{j} || !$options{l})) {
+  print"Options -p, -j and -l are all required when using option -n\n";
+  print"The correct options syntax for using network CIDR or CIDR list file as input is:\n";
+  print"For CIDR input: praeda.pl -n CIDR or CIDR_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";  
+  exit;
 }
 elsif ($options{t} && (!$options{p} || !$options{j} || !$options{l})) {
   print"Options -p, -j and -l are all required when using option -t\n";
@@ -90,53 +98,67 @@ elsif ($options{t} && (!$options{p} || !$options{j} || !$options{l})) {
   print"praeda.pl -t TARGET_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
   exit;  
 }
-elsif (!$options{g} && !$options{t} ) {
+elsif (!$options{g} && !$options{t} && !$options{n} ) {
   print"Required options are missing\n";
   print"The correct options syntax are:\n";
-  print"For .gnmap input: praeda.pl -g GNMAP_FILE -j PROJECT_NAME -l OUTPUT_LOG_FILE\n";
-  print"For target list input: praeda.pl -t TARGET_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
+  print"For GNMAP input:  praeda.pl -g GNMAP_FILE -j PROJECT_NAME -l OUTPUT_LOG_FILE\n";
+  print"For target input: praeda.pl -t TARGET_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
+  print"For CIDR input:   praeda.pl -n CIDR or CIDR_FILE -p TCP_PORT -j PROJECT_NAME -l OUTPUT_LOG_FILE -s SSL \n";
   exit;  
 }
 
-# -- Import data_file----
+# -- Import data_file ---------------
 my $data_file="$dirpath/data/data_list";
 open(DAT, $data_file) || die("Could not open file!");
 my @raw_data=<DAT>;
 close(DAT);
 
-# Enable -ssl 
+# -- Enable -ssl ---------------
 if (($options{s} eq "ssl" ) || ($options{s} eq "SSL"))
         {
 	$web = 's';
         }
 
-# Set ingnore invalid certs
+# -- Set Ingnore Invalid Certs ---------------
 $ENV{'PERL_LWP_SSL_VERIFY_HOSTNAME'}=0;
 
 
-# Setup browser
+# -- Setup Browser ---------------
 my $browser = LWP::UserAgent->new;
 $browser->cookie_jar({});
 $browser->timeout(15);
 
-# create project folder
+# -- Create Project Folder ---------------
 mkdir "$options{j}", 0775 unless -d "$options{j}";
 
 
-#setup and call gnmap input parser routine
+# -- Setup/Call GNMAP Routine ---------------
 if ($options{g}){
 $GNMAPFILE = $options{g};
 $OUTPUT = $options{j};
 $NAME = $option{l};
-&gnmap_parse($options{g}, $options{j}); #  ---DEBUG check the varables here and 3 lines above
+&gnmap_parse($options{g}, $options{j});
 }
 
-#set variable from option input data
+# -- Setup/Call CIDR Routine ---------------
+if ($options{n}){
+$CIDRFIL = $options{n};
+$OUTPUT = $options{j};
+$NAME = $option{l};
+&cidr_parse($options{n}, $options{j});
+}
+
+# -- Set Variables from Options --------------- 
 if ($options{t})
   {
   $FILE = "$options{t}";
   $PORTS = "$options{p}";
   }
+elsif ($options{n})
+ {
+  $FILE = "./$options{j}/targetdata.txt"; 
+  $PORTS = "$options{p}";
+ }
 else
   {
   $FILE = "./$options{j}/targetdata.txt";
@@ -146,7 +168,7 @@ $LOGFILE = "$options{l}";
 
 
 
-#Read target input data
+# -- Read Target Input ---------------
 open (FILE, "$FILE") || die("Unable to open: $FILE $!");
 
 while (<FILE>)
@@ -158,33 +180,40 @@ while (<FILE>)
                 if (($N =~ m/https/i) || ($N =~ m/ssl/i)){ $web = "s";}
 		else {$web ="";}
               }
-        else {
+        elsif ($options{n})
+             {
+              $TARGET = $_; 
+              chomp $TARGET;
+             }
+            
+        else 
+             {
               $TARGET = $_;
               chomp $TARGET;
              }
 
-# call port check subroutine 
+# -- Call Port Check Routine --------------- 
 	my ( $status ) = 
 	check_port( $TARGET, $PORTS );
 
 
 if ( $status == $SOCKET_IS_DOWN )
      {
-      open(WEBFILE, ">>./$OUTPUT/$LOGFILE-WebHost.txt") || die("Failed to open  Output file $LOGFILE-webhost.txt \n");
+      # open(WEBFILE, ">>./$OUTPUT/$LOGFILE-WebHost.txt") || die("Failed to open  Output file $LOGFILE-webhost.txt \n");
       print "$TARGET:$PORTS:NO ANSWER RETURNED\n";
-      print WEBFILE "$TARGET:$PORTS:NO ANSWER RETURNED\n";
-      close(WEBFILE);
+      # print WEBFILE "$TARGET:$PORTS:NO ANSWER RETURNED\n";
+      # close(WEBFILE);
      }
-# Target enumeration Section 
+# -- Target Enumeration Section ---------------
 else
      {
      my $html = $browser->get("http$web://$TARGET:$PORTS/");
      my $data1 = $html->header("Title");
      $data1 =~ s/[^[:print:]]/ /g;  # replace nonprintable characters with spaces "added May 13 2011 percX"
      my $data2 = $html->header("Server");
-     print "\n$TARGET:$PORTS:$data1:$data2\n";
+     print "$TARGET:$PORTS:$data1:$data2\n";
 
-# SNMP get request for device information
+     # SNMP Device Information Check 
      ($session,$error) = Net::SNMP->session(Hostname => $TARGET, Community => public,timeout => 1);
      $result = $session->get_request("1.3.6.1.2.1.1.1.0");
      $session->close;
@@ -224,7 +253,7 @@ else
 
 #-----------------------------------------------subroutines------------------------------------------------------#
 
-#tcp port check routine
+# -- TCP Port Check Routine ---------------
  sub check_port {
   my ( $TARGET, $PORTS ) = @_;
   my $status = $SOCKET_IS_DOWN;
@@ -248,8 +277,7 @@ else
 return ( $status);
 }
 
-
-# gnmap parse and save routine
+# -- GNMAP Parse and Save Routine ---------------
 sub gnmap_parse {
         my ( $GNMAPFILE, $OUTPUT ) = @_;
 	open(MYINPUTFILE, "$GNMAPFILE") || die("Failed to open gnmap file $GNMAPFILE \n");
@@ -264,7 +292,7 @@ while(<MYINPUTFILE>)
     next if ( /\tStatus: Down/ );       			# skip down hosts
     chomp;
 
-# clean up the entry
+    # clean up the entry
     s!host:\s+!!i;                      			# Host:
     s!\s+\(\)\s+!:!g;                   			# missing hostname
     s!^(\d+\.\d+\.\d+\.\d+)\s+(\([\w\.\-\_]+\))\s*!$1:$2!; 	# IP (hostname) to IP:(hostname)
@@ -272,11 +300,11 @@ while(<MYINPUTFILE>)
         s!|.*!!;                        			# trailing garbage
     s!\t+Ign.*!!;                       			# "Ignored State"
 
-# extract IP addresses and ports found
+    # extract IP addresses and ports found
     my @row = split (/:/, $_, 3);
     my @portspec = split (/,/, $row[2]);
     
-#save only ports marked "open" and contain http
+    #save only ports marked "open" and contain http
     open(OUTFILE, ">>./$OUTPUT/targetdata.txt") || die("Failed to open  Output file targetdata.txt \n");
     for my $portspec ( @portspec )
 	{
@@ -288,4 +316,41 @@ while(<MYINPUTFILE>)
 	}
     close (OUTFILE);
 }
+
+
+# -- CIDR Parse Routine ---------------
+sub cidr_parse {
+  my ( $GNMAPFILE, $OUTPUT ) = @_;
+  unlink("./$OUTPUT/targetdata.txt");
+  open(OUTFILE, ">>./$OUTPUT/targetdata.txt") || die("Failed to open  Output file targetdata.txt \n");
+
+   # extract ip addresses from CIDR or CIDR file and output to targetdata.txt file
+   if ( -e $CIDRFIL )
+      {
+       open(HAND, $CIDRFIL) || die("Unable to open: $CIDRFIL $!");
+       @cidr=<HAND>;
+       close(HAND);
+       for my $cidr( @cidr )
+          {
+           my $n = NetAddr::IP->new( $cidr );
+           for my $ip( @{$n->hostenumref} )
+              {
+               print OUTFILE $ip->addr, "\n";
+              }
+          }
+      }
+
+   else
+      {
+       my $cidr = $CIDRFIL;
+       my $n = NetAddr::IP->new( $cidr );
+       for my $ip( @{$n->hostenumref} )
+          {
+           $errText = $!;
+           chomp($errText);
+           print OUTFILE $ip->addr, "\n";
+          }
+       }
+        close (OUTFILE);
+       }
 }

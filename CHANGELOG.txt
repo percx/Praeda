@@ -54,3 +54,5 @@ August 18, 2013 bug fix issue with processing HTTPS in praeda.pl when using gnma
 August 29, 2013 Added new support modules for extraction of devices admin passwords for following Workcentre,s 5638, 5645, 5655, 5735, 5740, 5745, 5755, 7775. Also added support for extraction of SMB creds from address books on KONICA MINOLTA bizhub C220 & 223.
 
 September 16, 2013 added support for a KONICA MINOLTA bizhub 423 & 552
+
+October 17, 2013 added functionality to scan via CIDR (ie 192.168.1.0/24) or via a list of CIDRs Version upgrade to 2.2.0.089b
