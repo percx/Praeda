@@ -1,3 +1,6 @@
+Praeda is an automated data/information harvesting tool. Originally designed to extract data from Multi Function Printers (MFP), but since has been expanded to include all embedded devices. Praeda leverages weak password and vulnerabilities in embedded devices to extract data such as username, passwords and SNMP community strings.This data is extracted via the web management console and SNMP on most devices.
+
+
 This file is used to list a few config items and recommendation. Also some basic Praeda syntax 
 
 
