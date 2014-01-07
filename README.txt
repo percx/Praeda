@@ -17,8 +17,12 @@ use Net::SSL
 use Net::SNMP
 use NetAddr::IP;
 
-Note: If running on Windows host and having issues install Net:SSL with cpan. Change the following in praeda.pl "use Net::SSL" to "use Net::SSLeay" and run the following install for Net-SSLeay.ppd:
+Windows Install Note: If running on Windows host and having issues install Net:SSL with cpan. Change the following in praeda.pl "use Net::SSL" to "use Net::SSLeay" and run the following install for Net-SSLeay.ppd:
 ppm install http://http://cpansearch.perl.org/src/MIKEM/Net-SSLeay-1.46/Net-SSLeay.ppd --force
+
+
+Linux Install Note: If you have issues installing Net::SSL on linux getting the following error "SSLeay.xs:35:25: fatal error: openssl/ssl.h: No such file or directory"
+You will need to install the libssl-dev "apt-get install libssl-dev"
 
 
 set root of praeda install in praeda.pl under
