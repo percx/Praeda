@@ -7,8 +7,9 @@
 # PRAEDA version 0.02.2.089b
 ######################################################
 #                    PRAEDA                          #
-#        Copyright (C) 2010 Foofus.net		     #
+#               Copyright (C) 2014                   #
 #              Deral 'percX' Heiland                 #
+#                  @percent_x	                     #
 ######################################################
 #
 #  This program is free software; you can redistribute it and/or
@@ -27,7 +28,6 @@
 #
 # Contact Information:
 #       dh@layereddefense.com
-#       http://www.foofus.net & http://layereddefense.com
 #######################################################################
 # See the README.txt and/or help files for more information on how to use & config.
 # See the LICENSE.txt file for more information on the License PRAEDO is distributed under.
