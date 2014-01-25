@@ -223,7 +223,7 @@ else
      ($session,$error) = Net::SNMP->session(Hostname => $TARGET, Community => public,timeout => 1);
      $result = $session->get_request("1.3.6.1.2.1.1.1.0");
      $session->close;
-     my $data3 = $result->{"1.3.6.1.2.1.1.1.0"}; 
+     $data3 = $result->{"1.3.6.1.2.1.1.1.0"}; 
 
      open(WEBFILE, ">>./$OUTPUT/$LOGFILE-WebHost.txt") || die("Failed to open  Output file $LOGFILE-webhost.txt \n");
      print WEBFILE "$TARGET:$PORTS:$data1:$data2:$data3\n";
@@ -232,7 +232,7 @@ else
                {
                 chomp($DataEntry);
                 my @values=split(/\|/,$DataEntry);
-                  if ((($data1 eq $values[1]) && ($data2 =~ $values[2])) || (($data3 eq $values[1]) && ($values[2] eq "SNMP")))
+                  if ((($data1 eq $values[1]) && ($data2 =~ $values[2])) || (($data3 =~ $values[1]) && ($values[2] eq "SNMP")))
                      {
  		       my $num = $#values + 1;
                        for ($i=3;$i<$num;$i++)
