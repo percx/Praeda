@@ -56,3 +56,5 @@ August 29, 2013 Added new support modules for extraction of devices admin passwo
 September 16, 2013 added support for a KONICA MINOLTA bizhub 423 & 552
 
 October 17, 2013 added functionality to scan via CIDR (ie 192.168.1.0/24) or via a list of CIDRs Version upgrade to 2.2.0.089b
+
+January 25, 2014  added check and Title field padding - found strange issues when dealing with camparing enumerated Title pages and array containing Null data 

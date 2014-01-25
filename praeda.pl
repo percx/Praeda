@@ -209,7 +209,13 @@ else
      {
      my $html = $browser->get("http$web://$TARGET:$PORTS/");
      my $data1 = $html->header("Title");
+
      $data1 =~ s/[^[:print:]]/ /g;  # replace nonprintable characters with spaces "added May 13 2011 percX"
+     if ($data1 eq "") # padding Title field with space to avoid NULL array issues "added Jan 26 2014 percX"
+       {
+        $data1 =~ s/^/ /g;
+       }
+
      my $data2 = $html->header("Server");
      print "$TARGET:$PORTS:$data1:$data2\n";
 
