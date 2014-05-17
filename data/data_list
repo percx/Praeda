@@ -11,7 +11,7 @@ P000010|TopAccess|TOSHIBA TEC CORPORATION|MP0007
 P000011|XEROX WORKCENTRE PRO - Status|Xerox_MicroServer/Xerox11|MP0008
 P000012|XEROX WORKCENTRE PRO - Status|Webserver|MP0008
 P000013|XEROX WORKCENTRE - Status|Xerox_MicroServer/Xerox11|MP0008
-P000014| |CANON HTTP Server Ver2.30|MP0003|MP0009|MP0005
+P000014||CANON HTTP Server Ver2.30|MP0003|MP0009|MP0005
 P000015|HP Officejet 6500 E709a|Virata-EmWeb/R6_2_1|MP0011
 P000016|HP Officejet 6500 E709n|Virata-EmWeb/R6_2_1|MP0011
 P000017|HP Photosmart C6200 series|Virata-EmWeb/R6_2_1|MP0011
@@ -37,7 +37,7 @@ P000036|Top Page - MX-M503N|Rapid Logic/1.1|MP0014
 P000037|Top Page - MX-M623N|Rapid Logic/1.1|MP0014
 P000038|Top Page - MX-3501N|Rapid Logic/1.1|MP0014
 P000039|Lexmark X656de||MP0017
-P000040| |HP HTTP Server; HP Officejet 6500 E710n-z|MP0018
+P000040||HP HTTP Server; HP Officejet 6500 E710n-z|MP0018
 P000041|KONICA MINOLTA magicolor 4690MF|LPC Http Server/V1.0|MP0019
 P000042|KONICA MINOLTA magicolor 1690MF|LPC Http Server/V1.0|MP0019
 P000043|KONICA MINOLTA bizhub C452|SNMP|MP0020
@@ -73,8 +73,6 @@ P000072|KONICA MINOLTA bizhub C220|SNMP|MP0020
 P000073|KONICA MINOLTA bizhub 223|SNMP|MP0020
 P000074|KONICA MINOLTA bizhub 423|SNMP|MP0020
 P000075|KONICA MINOLTA bizhub 552|SNMP|MP0020
-P000076|Canon iR-ADV 4051 /P|SNMP|MP0021
-P000077|Canon iR-ADV C5045 /P|SNMP|MP0021
 A000001|Riverbed Technology, Inc.|Apache|MA0001
 A000002|EMC Celerra Network Server|Apache|MA0002
 A000003|EasyServer II|EasyServer II/6.3.0|MA0003
@@ -87,13 +85,16 @@ A000009|ConnectUPS Web/SNMP Card|UPS_Server/1.0|MA0007
 A000010|Spectrum24 Access Point|RapidLogic/1.1|MA0008
 A000011|Protected Object|Allegro-Software-RomPager/4.04|MA0009
 A000012|EtherPath Configuration|Web_Server|MA0012
-A000013| |Mbedthis-Appweb/2.4.2|MA0013
+A000013||Mbedthis-Appweb/2.4.2|MA0013
 A000014|Pillar AxiomONE Performance Statistical Trending|Apache|MA0014
 A000015|Equalizer Configuration|Apache|MA0015
 A000016|Emerson Network Power IntelliSlot Web Card|Allegro-Software-RomPager/4.30|MA0016
 A000017|Emerson Network Power IntelliSlot Web/485 Card|Allegro-Software-RomPager/4.30|MA0016
 A000018|Protected Object|PowerAlert HTTP server|MA0017
-A000019| |RomPager/4.07 UPnP/1.0|MA0018
+A000019||RomPager/4.07 UPnP/1.0|MA0018
 A000020|Protected Object|RomPager/4.07 UPnP/1.0|MA0018
 A000021|Sarix   |lighttpd/1.4.23|MA0019
 A000022|Sarix   |lighttpd/1.4.28|MA0019
+A000022|Netopia 3347|SNMP|MA0020
+A000023|Residential Gateway Configuration: Cable Modem - Navigation||MA0021
+A000023|DDW3611|SNMP|MA0022
