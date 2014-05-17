@@ -1,6 +1,3 @@
-Praeda is an automated data/information harvesting tool. Originally designed to extract data from Multi Function Printers (MFP), but since has been expanded to include all embedded devices. Praeda leverages weak password and vulnerabilities in embedded devices to extract data such as username, passwords and SNMP community strings.This data is extracted via the web management console and SNMP on most devices.
-
-
 This file is used to list a few config items and recommendation. Also some basic Praeda syntax 
 
 
@@ -12,17 +9,13 @@ URI::Fetch
 HTTP::Cookies
 IO::Socket
 HTML::TableExtract
-Getopt::Std
-Net::SSL
-Net::SNMP
-NetAddr::IP;
+use Getopt::Std
+use Net::SSL
+use Net::SNMP
+use NetAddr::IP;
 
-Windows Install Note: If running on Windows host and having issues install Net:SSL with cpan. Change the following in praeda.pl "use Net::SSL" to "use Net::SSLeay" and run the following install for Net-SSLeay.ppd:
+Note: If running on Windows host and having issues install Net:SSL with cpan. Change the following in praeda.pl "use Net::SSL" to "use Net::SSLeay" and run the following install for Net-SSLeay.ppd:
 ppm install http://http://cpansearch.perl.org/src/MIKEM/Net-SSLeay-1.46/Net-SSLeay.ppd --force
-
-
-Linux Install Note: If you have issues installing Net::SSL on linux getting the following error "SSLeay.xs:35:25: fatal error: openssl/ssl.h: No such file or directory"
-You will need to install the libssl-dev "apt-get install libssl-dev"
 
 
 set root of praeda install in praeda.pl under
