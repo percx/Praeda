@@ -57,4 +57,8 @@ September 16, 2013 added support for a KONICA MINOLTA bizhub 423 & 552
 
 October 17, 2013 added functionality to scan via CIDR (ie 192.168.1.0/24) or via a list of CIDRs Version upgrade to 2.2.0.089b
 
+January 25, 2014  added check and Title field padding - found strange issues when dealing with camparing enumerated Title pages and array containing Null data
+
+Feburary 13, 2014  added two new Canon devices to the data_list iR-ADV C5045 & 4051
+
 May 17, 2014 added new support modules for extracting username, passwords, WPA PSK and WEP keys for Ubee, Ambit and Netopia modems.
