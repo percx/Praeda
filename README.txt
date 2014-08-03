@@ -9,13 +9,21 @@ URI::Fetch
 HTTP::Cookies
 IO::Socket
 HTML::TableExtract
-use Getopt::Std
-use Net::SSL
-use Net::SNMP
-use NetAddr::IP;
+Getopt::Std
+Net::SSL
+Net::SNMP
+NetAddr::IP;
 
-Note: If running on Windows host and having issues install Net:SSL with cpan. Change the following in praeda.pl "use Net::SSL" to "use Net::SSLeay" and run the following install for Net-SSLeay.ppd:
-ppm install http://http://cpansearch.perl.org/src/MIKEM/Net-SSLeay-1.46/Net-SSLeay.ppd --force
+Quick CPAN command to make this happen:
+cpan -i LWP::Simple LWP::UserAgent HTML::TagParser URI::Fetch HTTP::Cookies IO::Socket HTML::TableExtract Getopt::Std  Net::SSL Net::SNMP NetAddr::IP
+
+
+-----------------------------------------------------------------
+Note: If running on Windows host and having issues install Net:SSL with cpan. 
+1.Change line 47 in praeda.pl from “use Net::SSL; to use Net::SSLeay;
+2. Run following install for Net-SSLeay.ppd:
+	ppm install http://www.sisyphusion.tk/ppm/Net-SSLeay.ppd
+-----------------------------------------------------------------
 
 
 set root of praeda install in praeda.pl under
@@ -23,7 +31,7 @@ my $dirpath =".";
 
 
 
-Praeda version 0.02.2.099b syntax:
+Praeda version 0.02.2.100b syntax:
 first part of version  0.02.2 represent the core product version the Last 3 digits represent the number of product versions tested.
 
 PRAEDA OPTIONS:

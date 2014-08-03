@@ -75,7 +75,7 @@ P000074|KONICA MINOLTA bizhub 423|SNMP|MP0020
 P000075|KONICA MINOLTA bizhub 552|SNMP|MP0020
 P000076|Canon iR-ADV 4051 /P|SNMP|MP0021
 P000077|Canon iR-ADV C5045 /P|SNMP|MP0021
-A000001|Riverbed Technology, Inc.|Apache|MA0001
+A000001 TEMP DISABLED|Riverbed Technology, Inc.|Apache|
 A000002|EMC Celerra Network Server|Apache|MA0002
 A000003|EasyServer II|EasyServer II/6.3.0|MA0003
 A000004|Digi Configuration and Management|GoAhead-Webs|MA0004
@@ -85,7 +85,9 @@ A000007-NotValidated|Welcome to FireScope|Apache/2.2.9 (rPath)|MA0005
 A000008|Login Page|Apache|MA0006
 A000009|ConnectUPS Web/SNMP Card|UPS_Server/1.0|MA0007
 A000010|Spectrum24 Access Point|RapidLogic/1.1|MA0008
-A000011|Protected Object|Allegro-Software-RomPager/4.04|MA0009
+A000011A-test|Protected Object|Allegro-Software-RomPager/ 2.10|MA0009
+A000011B-test|Protected Object|Allegro-Software-RomPager/3.10|MA0009
+A000011C|Protected Object|Allegro-Software-RomPager/4.04|MA0009
 A000012|EtherPath Configuration|Web_Server|MA0012
 A000013| |Mbedthis-Appweb/2.4.2|MA0013
 A000014|Pillar AxiomONE Performance Statistical Trending|Apache|MA0014

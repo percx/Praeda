@@ -62,3 +62,5 @@ January 25, 2014  added check and Title field padding - found strange issues whe
 Feburary 13, 2014  added two new Canon devices to the data_list iR-ADV C5045 & 4051
 
 May 17, 2014 added new support modules for extracting username, passwords, WPA PSK and WEP keys for Ubee, Ambit and Netopia modems.
+
+Aug 03, 2014 added new support for arris wifi modem SBG6580. Also disabled Riverbed module (MA0001)high false positives, and added a few more test finger prints for older APCs.
