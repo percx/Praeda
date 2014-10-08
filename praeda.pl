@@ -272,7 +272,6 @@ else
 
  if ( defined $socket ) 
      {
-      sleep $WAIT_FOR_RST; 
       my $is_connected = $socket->connected;
 
          if ( defined $is_connected ) 
