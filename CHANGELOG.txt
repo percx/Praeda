@@ -64,3 +64,5 @@ Feburary 13, 2014  added two new Canon devices to the data_list iR-ADV C5045 & 4
 May 17, 2014 added new support modules for extracting username, passwords, WPA PSK and WEP keys for Ubee, Ambit and Netopia modems.
 
 Aug 03, 2014 added new support for arris wifi modem SBG6580. Also disabled Riverbed module (MA0001)high false positives, and added a few more test finger prints for older APCs.
+
+Jan 04, 2015 Updated Konica Minolta Module MP0020 to better support various models and soap versions. Also added support for Konica models c283e c554 602. Also updated a few other modules for more parsable output. Also updated praeda.pl so SNMP title data "$data3" could be passed to modules

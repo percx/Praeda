@@ -4,7 +4,7 @@
 # praeda [robber, plunderer]. 
 #   
 #
-# PRAEDA version 0.02.2.103b
+# PRAEDA version 0.02.3.109b
 ######################################################
 #                    PRAEDA                          #
 #               Copyright (C) 2014                   #
@@ -245,7 +245,7 @@ else
 			     close (OUTFILE);
 			     $job = $values[$i];	
 			     require "$dirpath/jobs/$values[$i].pl";
-                             my $printpwn = $job->$job($TARGET,$PORTS,$web,$OUTPUT,$LOGFILE,$data1);
+                             my $printpwn = $job->$job($TARGET,$PORTS,$web,$OUTPUT,$LOGFILE,$data1,$data3);
 			     print "\n";
                              } 
 			}
@@ -272,7 +272,7 @@ else
 
  if ( defined $socket ) 
      {
-      sleep $WAIT_FOR_RST; 
+      # sleep $WAIT_FOR_RST; 
       my $is_connected = $socket->connected;
 
          if ( defined $is_connected ) 

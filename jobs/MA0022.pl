@@ -40,7 +40,7 @@ my @args = ( -varbindlist =>  [$oid]);
 while (defined($session->get_next_request(@args))) {
     $data = (keys(%{$session->var_bind_list}))[0];
     if (!oid_base_match($oid, $data)) { last; }
-    printf OUTFILE ("UserName:          %s\n", $session->var_bind_list->{$data});
+    printf OUTFILE ("SUCCESS:Brocade:UserName:          %s\n", $session->var_bind_list->{$data});
     @args = (-varbindlist => [$data]);
 }
 $oid = ".1.3.6.1.4.1.1991.1.1.2.9.2.1.2";
@@ -48,7 +48,7 @@ my @args = ( -varbindlist =>  [$oid]);
 while (defined($session->get_next_request(@args))) {
     $data = (keys(%{$session->var_bind_list}))[0];
     if (!oid_base_match($oid, $data)) { last; }
-    printf OUTFILE ("Password Hash:     %s\n", $session->var_bind_list->{$data});
+    printf OUTFILE ("SUCCESS:Brocade:Password Hash:     %s\n", $session->var_bind_list->{$data});
     @args = (-varbindlist => [$data]);
 }
 

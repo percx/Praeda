@@ -31,8 +31,8 @@ my $dirpath =".";
 
 
 
-Praeda version 0.02.2.100b syntax:
-first part of version  0.02.2 represent the core product version the Last 3 digits represent the number of product versions tested.
+Praeda version 0.02.3.109b syntax:
+first part of version  0.02.3 represent the core product version the Last 3 digits represent the number of product versions tested.
 
 PRAEDA OPTIONS:
 -g GNMAP_FILE

