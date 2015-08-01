@@ -68,3 +68,5 @@ Aug 03, 2014 added new support for arris wifi modem SBG6580. Also disabled River
 Jan 04, 2015 Updated Konica Minolta Module MP0020 to better support various models and soap versions. Also added support for Konica models c283e c554 602. Also updated a few other modules for more parsable output. Also updated praeda.pl so SNMP title data "$data3" could be passed to modules
 
 June 27, 2015 added fingerprint for Canon iR-ADV C5235 
+
+Aug 01, 2015 added support to extract address book data containing FTP and SMB credential from Various Kyocera MFP device. Also updated some of the base code to make it cleaner. 

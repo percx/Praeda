@@ -36,6 +36,7 @@
 # can not be held liable for anything done with this program, code, or items discovered
 # with this program's use.
 #######################################################################
+use strict;
 use LWP::Simple;
 use LWP::UserAgent;
 use HTML::TagParser;
@@ -63,12 +64,14 @@ my $WAIT_FOR_RST = 1;
 my $TARGET = "";
 my $PORTS = "";
 my $OUTPUT = "";
+my $NAME = "";
 my $LOGFILE = "";
 my $FILE = "";
+my $CIDRFIL = "";
 my $data3 = "Q";
 
 # -- Set Options ---------------
-%options=();
+my %options=();
 getopts("g:n:t:p:j:l:s:",\%options);
 
 #set option exclusions and messages
@@ -134,9 +137,9 @@ mkdir "$options{j}", 0775 unless -d "$options{j}";
 
 # -- Setup/Call GNMAP Routine ---------------
 if ($options{g}){
-$GNMAPFILE = $options{g};
+my $GNMAPFILE = $options{g};
 $OUTPUT = $options{j};
-$NAME = $option{l};
+$NAME = $options{l};
 &gnmap_parse($options{g}, $options{j});
 }
 
@@ -144,7 +147,7 @@ $NAME = $option{l};
 if ($options{n}){
 $CIDRFIL = $options{n};
 $OUTPUT = $options{j};
-$NAME = $option{l};
+$NAME = $options{l};
 &cidr_parse($options{n}, $options{j});
 }
 
@@ -176,7 +179,7 @@ while (<FILE>)
 	if ($options{g})
              {
               chomp $TARGET;
-              ($TARGET, $PORTS, $N) = split(/:/);
+              ($TARGET, $PORTS, my $N) = split(/:/);
                 if (($N =~ m/https/i) || ($N =~ m/ssl/i)){ $web = "s";}
 		else {$web ="";}
               }
@@ -220,8 +223,8 @@ else
      print "$TARGET:$PORTS:$data1:$data2\n";
 
      # SNMP Device Information Check 
-     ($session,$error) = Net::SNMP->session(Hostname => $TARGET, Community => public,timeout => 1);
-     $result = $session->get_request("1.3.6.1.2.1.1.1.0");
+     (my $session,my $error) = Net::SNMP->session(Hostname => $TARGET, Community => "public",timeout => 1);
+     my $result = $session->get_request("1.3.6.1.2.1.1.1.0");
      $session->close;
      $data3 = $result->{"1.3.6.1.2.1.1.1.0"}; 
 
@@ -235,7 +238,7 @@ else
                   if ((($data1 eq $values[1]) && ($data2 =~ $values[2])) || (($data3 =~ $values[1]) && ($values[2] eq "SNMP")))
                      {
  		       my $num = $#values + 1;
-                       for ($i=3;$i<$num;$i++)
+                       for (my $i=3;$i<$num;$i++)
 			{
                           if ($values[$i] eq ''){}
                           else
@@ -334,7 +337,7 @@ sub cidr_parse {
    if ( -e $CIDRFIL )
       {
        open(HAND, $CIDRFIL) || die("Unable to open: $CIDRFIL $!");
-       @cidr=<HAND>;
+       my @cidr=<HAND>;
        close(HAND);
        for my $cidr( @cidr )
           {
@@ -352,7 +355,7 @@ sub cidr_parse {
        my $n = NetAddr::IP->new( $cidr );
        for my $ip( @{$n->hostenumref} )
           {
-           $errText = $!;
+           my $errText = $!;
            chomp($errText);
            print OUTFILE $ip->addr, "\n";
           }
