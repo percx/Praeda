@@ -72,3 +72,5 @@ June 27, 2015 added fingerprint for Canon iR-ADV C5235
 Aug 01, 2015 added support to extract address book data containing FTP and SMB credential from Various Kyocera MFP device. Also updated some of the base code to make it cleaner. 
 
 Sep 22, 2015  added two new modules for DELL Metered Rack PDU and NAS4FREE software, these modules check for default creds and attempt to extract SMB and SNMP information. Current fingerprint may be ambiguous leeding to some false positives. Also added Konica Minolta checks for C280 and 283
+
+Dec 01, 2015 Added Xerox WorkCentre 7535, 7540 Checks. Also added a module that checks ADP PDU devices for default creds.

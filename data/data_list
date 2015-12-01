@@ -82,7 +82,9 @@ P000081|Xerox WorkCentre 5740 v1 Multifunction System|SNMP|MP0022|MP0015
 P000082|Xerox WorkCentre 5745 v1 Multifunction System|SNMP|MP0022
 P000083|Xerox WorkCentre 5755 v1 Multifunction System|SNMP|MP0022
 P000084|Xerox WorkCentre 7775 v1 Multifunction System|SNMP|MP0022
-P000085|KYOCERA Document Solutions Printing System|SNMP|MP0023
+P000085|Xerox WorkCentre 7535 v1 Multifunction System|SNMP|MP0022
+P000086|Xerox WorkCentre 7545 v1 Multifunction System|SNMP|MP0022
+P000087|KYOCERA Document Solutions Printing System|SNMP|MP0023
 A000001-DISABLED|Riverbed Technology, Inc.|Apache|
 A000002|EMC Celerra Network Server|Apache|MA0002
 A000003|EasyServer II|EasyServer II/6.3.0|MA0003
@@ -114,3 +116,4 @@ A000028|DDW3611|SNMP|MA0023
 A000029|SBG6580|SNMP|MA0024
 A000030-test|Start Page|UPS_Server/1.0|
 A000031-test|nas4free|lighttpd/1.4.35|MA0026
+A000032|APC|SNMP|MA0027
