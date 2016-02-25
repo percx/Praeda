@@ -4,7 +4,7 @@
 # praeda [robber, plunderer]. 
 #   
 #
-# PRAEDA version 0.02.3.111b
+# PRAEDA version 0.02.3.117b
 ######################################################
 #                    PRAEDA                          #
 #               Copyright (C) 2014                   #

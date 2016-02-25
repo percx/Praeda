@@ -117,3 +117,4 @@ A000029|SBG6580|SNMP|MA0024
 A000030-test|Start Page|UPS_Server/1.0|
 A000031-test|nas4free|lighttpd/1.4.35|MA0026
 A000032|APC|SNMP|MA0027
+A000033|/switchExplorer.html|Apache|MA0030
