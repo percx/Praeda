@@ -78,3 +78,5 @@ Dec 01, 2015 Added Xerox WorkCentre 7535, 7540 Checks. Also added a module that 
 Feb 25, 2016 Added defaul password validation check for a EMC Connectrix device.
 
 May 10, 2016 Added support for KYOCERA MITA Printing System 
+
+Jun 08, 2016 Added support for Xerox WorkCentre 7545
