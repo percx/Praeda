@@ -87,6 +87,9 @@ P000086|Xerox WorkCentre 7545 v1 Multifunction System|SNMP|MP0022
 P000087|Xerox WorkCentre 7556 v1 Multifunction System|SNMP|MP0022
 P000088|KYOCERA Document Solutions Printing System|SNMP|MP0023
 P000089|KYOCERA MITA Printing System|SNMP|MP0023
+P000089|Canon iR-ADV 4045 /P|SNMP|MP0021
+P000090|Canon iR-ADV 4245 /P|SNMP|MP0021
+P000091|Canon iR-ADV 6255 /P|SNMP|MP0021
 A000001-DISABLED|Riverbed Technology, Inc.|Apache|
 A000002|EMC Celerra Network Server|Apache|MA0002
 A000003|EasyServer II|EasyServer II/6.3.0|MA0003

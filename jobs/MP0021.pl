@@ -52,7 +52,7 @@ if ($content =~ /VARIE_BOX_ALL_SETTING/)
 # Export address books
     for ($count=1; $count<12; $count++)
 	{
-    	 $response = $browser->get("http$web://$TARGET:8000/rps/abook.ldif?AID=1&ACLS=1&ENC_MODE=0&ENC_FILE=password&PASSWD=&PageFlag=&AMOD=&Dummy=1359047882596&ERR_PG_KIND_FLG=Adress_Export",);
+    	 $response = $browser->get("http$web://$TARGET:8000/rps/abook.ldif?AID=$count&ACLS=1&ENC_MODE=0&ENC_FILE=password&PASSWD=&PageFlag=&AMOD=&Dummy=1359047882596&ERR_PG_KIND_FLG=Adress_Export",);
          if($response->content =~ m/error/ix)
             {
              print "\nPrinter returned an error";

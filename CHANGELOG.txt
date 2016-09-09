@@ -80,3 +80,5 @@ Feb 25, 2016 Added defaul password validation check for a EMC Connectrix device.
 May 10, 2016 Added support for KYOCERA MITA Printing System 
 
 Jun 08, 2016 Added support for Xerox WorkCentre 7545
+
+Sep 09, 2016 Added support for 3 more Canon iR-ADV devices and fixed code issue in MP0021 updates privided by Chris Schatz
