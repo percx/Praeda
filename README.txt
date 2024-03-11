@@ -15,8 +15,10 @@ Net::SNMP
 NetAddr::IP;
 
 Quick CPAN command to make this happen:
-cpan -i LWP::Simple LWP::UserAgent HTML::TagParser URI::Fetch HTTP::Cookies IO::Socket HTML::TableExtract Getopt::Std  Net::SSL Net::SNMP NetAddr::IP
+sudo cpan -i LWP::Simple LWP::UserAgent HTML::TagParser URI::Fetch HTTP::Cookies IO::Socket HTML::TableExtract Getopt::Std  Net::SSL Net::SNMP NetAddr::IP
 
+If you receive Can't locate Switch.pm error:
+sudo apt-get install libswitch-perl
 
 -----------------------------------------------------------------
 Note: If running on Windows host and having issues install Net:SSL with cpan. 
