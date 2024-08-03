@@ -23,8 +23,8 @@ sudo apt-get install libswitch-perl
 -----------------------------------------------------------------
 Note: If running on Windows host and having issues install Net:SSL with cpan. 
 1.Change line 47 in praeda.pl from “use Net::SSL; to use Net::SSLeay;
-2. Run following install for Net-SSLeay.ppd:
-	ppm install http://www.sisyphusion.tk/ppm/Net-SSLeay.ppd
+2.تشغيل التثبيت التالي لـ Net-SLeay.ppd:
+ppm تثبيت http://www.sisyphusion.tk/ppm/Net-SSLeay.ppd 
 -----------------------------------------------------------------
 
 
